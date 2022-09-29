@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
-import './css/Login.css';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+
 import logoTrybeWallet from '../images/logoTrybeWallet.png';
 import { userAction } from '../redux/actions';
 
