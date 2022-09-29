@@ -9,7 +9,7 @@ class Header extends Component {
   render() {
     const { emailGlobal } = this.props;
     return (
-      <header>
+      <header className="header">
         {emailGlobal.length === 0 && <Redirect to="/" /> }
         <div>
           <img src={ logoTrybeWallet } alt="Logo Trybe wallet" />
