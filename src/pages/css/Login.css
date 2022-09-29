@@ -1,0 +1,73 @@
+/* stylelint-disable linebreaks */
+.login-main {
+  height: 100vh;
+}
+
+.login-container {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: -4px 9px 13px rgba(3, 107, 82, 0.3);
+  flex-direction: column;
+  height: 356px;
+  max-width: 525px;
+  width: 80%;
+}
+
+.input-container-login {
+  margin: 2.5px;
+  max-width: 330px;
+  padding: 2.5px;
+  width: 80%;
+}
+
+.input-container-login input {
+  background: white;
+  border: 1px solid #003be5;
+  border-radius: 5px;
+  height: 40px;
+  width: 100%;
+}
+
+input::placeholder {
+  color: #003be5;
+  padding: 0 10px;
+}
+
+.login-container-img {
+  margin-bottom: 30px;
+}
+
+.login-container-img img {
+  width: 100%;
+}
+
+.login-container-button {
+  margin-top: 10px;
+  max-width: 335px;
+  width: 80%;
+}
+
+.login-container-button button {
+  background: #003be5;
+  border: 1px solid #003be5;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  height: 40px;
+  line-height: 14px;
+  text-align: center;
+  width: 100%;
+}
+
+.login-container-button button:hover {
+  background: #00d5e2;
+  border: 1px solid #00d5e2;
+  cursor: pointer;
+}
+
+.login-container-button button:disabled {
+  background: #e1e5eb;
+  border: 1px solid #e1e5eb;
+  cursor: initial;
+}
