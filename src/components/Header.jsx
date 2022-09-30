@@ -9,7 +9,7 @@ import icon from '../images/icon.png';
 
 class Header extends Component {
   render() {
-    const { emailGlobal } = this.props;
+    const { emailGlobal, despesas } = this.props;
     return (
       <header className="header">
         {emailGlobal.length === 0 && <Redirect to="/" /> }
@@ -19,7 +19,7 @@ class Header extends Component {
         <div className="header-coin-container center">
           <img src={ moeda } alt="moeda" />
           <p className="bold">Total de Despesas:</p>
-          <p data-testid="total-field">{0}</p>
+          <p data-testid="total-field">{despesas}</p>
           <p data-testid="header-currency-field">BRL</p>
         </div>
         <div className="header-email-container center">
@@ -33,10 +33,12 @@ class Header extends Component {
 
 const mapStateToProps = (state) => ({
   emailGlobal: state.user.email,
+  despesas: state.wallet.despesas,
 });
 
 Header.propTypes = {
   emailGlobal: PropTypes.string.isRequired,
+  despesas: PropTypes.number.isRequired,
 };
 
 export default connect(mapStateToProps)(Header);

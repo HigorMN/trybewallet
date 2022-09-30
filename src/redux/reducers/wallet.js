@@ -3,6 +3,7 @@ const INITIAL_STATE = {
   expenses: [],
   editor: false,
   idToEdit: 0,
+  despesas: 0,
 };
 
 const wallet = (state = INITIAL_STATE, action) => {
@@ -11,6 +12,12 @@ const wallet = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       currencies: action.currencies,
+    };
+  case 'EXPENSES_CLICK':
+    return {
+      ...state,
+      expenses: [...state.expenses, action.expenObj],
+      despesas: ((+state.despesas + (+action.expenObj.value * action.cota))).toFixed(2),
     };
   default:
     return state;

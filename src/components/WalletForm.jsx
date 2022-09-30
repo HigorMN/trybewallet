@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { fetchAPICoin } from '../redux/actions';
+import { expensesAction, fetchAPICoin } from '../redux/actions';
 
 class WalletForm extends Component {
   state = {
-    description: '',
-    tag: 'Alimentação',
+    id: 0,
     value: '',
+    description: '',
     currency: 'USD',
     method: 'Dinheiro',
+    tag: 'Alimentação',
   };
 
   componentDidMount() {
@@ -20,6 +21,23 @@ class WalletForm extends Component {
 
   handleChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value });
+  };
+
+  handleClick = async () => {
+    const { dispatch } = this.props;
+    const { currency } = this.state;
+    const fetchAPI = await fetch('https://economia.awesomeapi.com.br/json/all');
+    const jsonAPI = await fetchAPI.json();
+    const filter = +Object.values(jsonAPI)[Object.keys(jsonAPI).indexOf(currency)].ask;
+    dispatch(expensesAction({ ...this.state, exchangeRates: jsonAPI }, filter));
+    this.setState((state) => ({
+      id: state.id + 1,
+      value: '',
+      description: '',
+      currency: 'USD',
+      method: 'Dinheiro',
+      tag: 'Alimentação',
+    }));
   };
 
   render() {
@@ -102,6 +120,9 @@ class WalletForm extends Component {
             </select>
           </label>
         </div>
+        <div>
+          <button type="button" onClick={ this.handleClick }>Adicionar despesa</button>
+        </div>
       </form>
     );
   }
@@ -113,7 +134,7 @@ const mapStateToProps = (state) => ({
 
 WalletForm.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  coin: PropTypes.arrayOf.isRequired,
+  coin: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default connect(mapStateToProps)(WalletForm);

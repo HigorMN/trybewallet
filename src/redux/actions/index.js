@@ -10,6 +10,12 @@ export const coinAPI = (payload) => ({
   currencies: payload,
 });
 
+export const expensesAction = (payload, cota) => ({
+  type: 'EXPENSES_CLICK',
+  expenObj: payload,
+  cota,
+});
+
 export const fetchAPICoin = () => async (dispatch) => {
   const fetchAPI = await fetch('https://economia.awesomeapi.com.br/json/all');
   const jsonAPI = await fetchAPI.json();
