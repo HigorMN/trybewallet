@@ -42,7 +42,7 @@ class Login extends React.Component {
     const { email, passoword, disableButton, redirect } = this.state;
     return (
       <main className="login-main center ">
-        <div className="login-container center">
+        <form className="login-container center">
           <div className="login-container-img">
             <img src={ logoTrybeWallet } alt="Logo Trybe wallet" />
           </div>
@@ -76,7 +76,7 @@ class Login extends React.Component {
             </button>
             { redirect && <Redirect to="/carteira" />}
           </div>
-        </div>
+        </form>
       </main>
     );
   }
