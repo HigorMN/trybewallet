@@ -120,8 +120,14 @@ class WalletForm extends Component {
             </select>
           </label>
         </div>
-        <div>
-          <button type="button" onClick={ this.handleClick }>Adicionar despesa</button>
+        <div className="wallet-form-button-container center">
+          <button
+            type="button"
+            onClick={ this.handleClick }
+            className="wallet-button"
+          >
+            Adicionar despesa
+          </button>
         </div>
       </form>
     );
