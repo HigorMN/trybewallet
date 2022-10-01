@@ -256,12 +256,33 @@ input [ type = 'button' ]:disabled {
   border-right: 1px solid white;
 }
 
-.table-tr-first th {
+.brv {
+  border-right: 1px solid #2fc18c;
+}
+
+.table-tr-first th , .table-tr-second td {
   align-items: center;
   display: flex;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 600;
-  height: 27px;
+  height: 45px;
+  justify-content: center;
   line-height: 13px;
-  padding: 0 30px;
+  margin: 5px auto;
+  text-align: center;
+  width: 150px;
+}
+
+.table-tr-second {
+  border-bottom: 1px solid #2fc18c;
+  margin-top: 10px;
+}
+
+.table-tr-second td {
+  color: #2fc18c;
+  font-weight: 400;
+}
+
+.tbody {
+  flex-direction: column;
 }

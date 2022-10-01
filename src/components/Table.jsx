@@ -20,19 +20,22 @@ class Table extends Component {
             <th className="br">Moeda de conversão</th>
             <th>Editar/Excluir</th>
           </tr>
-          <tbody>
+          <tbody className="center tbody">
             {expensesGlobal.map((e) => (
-              <tr key={ e.id }>
-                <td>{e.description}</td>
-                <td>{e.tag}</td>
-                <td>{e.method}</td>
-                <td>{parseFloat(e.value).toFixed(2)}</td>
-                <td>{e.exchangeRates[e.currency].name}</td>
-                <td>{parseFloat(e.exchangeRates[e.currency].ask).toFixed(2)}</td>
-                <td>
+              <tr key={ e.id } className="center table-tr-second">
+                <td className="brv">{e.description}</td>
+                <td className="brv">{e.tag}</td>
+                <td className="brv">{e.method}</td>
+                <td className="brv">{parseFloat(e.value).toFixed(2)}</td>
+                <td className="brv">{e.exchangeRates[e.currency].name}</td>
+                <td className="brv">
+                  {parseFloat(e.exchangeRates[e.currency].ask).toFixed(2)}
+                </td>
+                <td className="brv">
                   {(+e.value * parseFloat(e.exchangeRates[e.currency].ask)).toFixed(2)}
                 </td>
-                <td>Real</td>
+                <td className="brv">Real</td>
+                <td />
               </tr>
             ))}
           </tbody>
