@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
-import arrayTable from './util/arrayTable';
+import { connect } from 'react-redux';
 
 class Table extends Component {
   render() {
     return (
-      <div>
+      <div className="table-container center">
         <table>
-          <tr>
-            {arrayTable.map((e, index) => (<th key={ index }>{e}</th>))}
+          <tr className="table-tr-first center">
+            <th className="br">Descrição</th>
+            <th className="br">Tag</th>
+            <th className="br">Método de pagamento</th>
+            <th className="br">Valor</th>
+            <th className="br">Moeda</th>
+            <th className="br">Câmbio utilizado</th>
+            <th className="br">Valor convertido</th>
+            <th className="br">Moeda de conversão</th>
+            <th>Editar/Excluir</th>
           </tr>
         </table>
       </div>
@@ -15,4 +23,11 @@ class Table extends Component {
   }
 }
 
-export default Table;
+const mapStateToProps = (state) => {
+  const { wallet: { currencies: { expenses } } } = state;
+  return {
+    expenses,
+  };
+};
+
+export default connect(mapStateToProps)(Table);

@@ -236,5 +236,32 @@ input [ type = 'button' ]:disabled {
   border-radius: 10px;
   box-shadow: -4px 9px 13px rgba(3, 107, 82, 0.3);
   margin: auto;
+  padding-bottom: 20px;
   width: 90%;
+}
+
+.table-container {
+  color: white;
+  margin: 25px auto;
+}
+
+.table-tr-first {
+  border-bottom: 1px solid white;
+  margin: auto;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.br {
+  border-right: 1px solid white;
+}
+
+.table-tr-first th {
+  align-items: center;
+  display: flex;
+  font-size: 12px;
+  font-weight: 600;
+  height: 27px;
+  line-height: 13px;
+  padding: 0 30px;
 }
