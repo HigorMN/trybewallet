@@ -38,6 +38,7 @@ const wallet = (state = INITIAL_STATE, action) => {
       despesas: +action.newExpenseArray
         .reduce((acc, crt) => acc + (
           +crt.value * +crt.exchangeRates[crt.currency].ask), 0).toFixed(2),
+      editor: false,
     };
   default:
     return state;
