@@ -25,9 +25,22 @@ const wallet = (state = INITIAL_STATE, action) => {
       despesas: (+state.despesas - +action.convertedValue).toFixed(2),
       expenses: state.expenses.filter((e) => e.id !== action.id),
     };
+  case 'EDIT_BUTTON':
+    return {
+      ...state,
+      editor: true,
+      idToEdit: action.idToEdit,
+    };
+  case 'SAVE_EDIT':
+    return {
+      ...state,
+      expenses: action.newExpenseArray,
+      despesas: action.newExpenseArray
+        .reduce((acc, crt) => acc + (
+          +crt.value * +crt.exchangeRates[crt.currency].ask), 0).toFixed(2),
+    };
   default:
     return state;
   }
 };
-// .exChangeRates[state.expenses.currency].ask
 export default wallet;

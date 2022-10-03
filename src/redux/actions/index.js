@@ -22,6 +22,16 @@ export const removeAction = (id, convertedValue) => ({
   convertedValue,
 });
 
+export const editAction = (idToEdit) => ({
+  type: 'EDIT_BUTTON',
+  idToEdit,
+});
+
+export const saveEditAction = (payload) => ({
+  type: 'SAVE_EDIT',
+  newExpenseArray: payload,
+});
+
 export const fetchAPICoin = () => async (dispatch) => {
   const fetchAPI = await fetch('https://economia.awesomeapi.com.br/json/all');
   const jsonAPI = await fetchAPI.json();
