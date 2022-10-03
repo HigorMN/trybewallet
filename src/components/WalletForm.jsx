@@ -8,7 +8,7 @@ const alimentacao = 'Alimentação';
 class WalletForm extends Component {
   state = {
     id: 0,
-    value: 0,
+    value: '',
     description: '',
     currency: 'USD',
     method: 'Dinheiro',
@@ -33,7 +33,7 @@ class WalletForm extends Component {
     dispatch(expensesAction({ ...this.state, exchangeRates: jsonAPI }, filter));
     this.setState((state) => ({
       id: state.id + 1,
-      value: 0,
+      value: '',
       description: '',
       currency: 'USD',
       method: 'Dinheiro',
@@ -56,7 +56,7 @@ class WalletForm extends Component {
     dispatch(saveEditAction(newEdit));
 
     this.setState({
-      value: 0,
+      value: '',
       description: '',
       currency: 'USD',
       method: 'Dinheiro',
