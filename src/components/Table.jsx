@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { removeAction } from '../redux/actions';
 
 class Table extends Component {
+  removeClick = (id, convertedValue) => {
+    const { dispatch } = this.props;
+    dispatch(removeAction(id, convertedValue));
+  };
+
   render() {
     const { expensesGlobal } = this.props;
 
@@ -21,23 +27,35 @@ class Table extends Component {
             <th>Editar/Excluir</th>
           </tr>
           <tbody className="center tbody">
-            {expensesGlobal.map((e) => (
-              <tr key={ e.id } className="center table-tr-second">
-                <td className="brv">{e.description}</td>
-                <td className="brv">{e.tag}</td>
-                <td className="brv">{e.method}</td>
-                <td className="brv">{parseFloat(e.value).toFixed(2)}</td>
-                <td className="brv">{e.exchangeRates[e.currency].name}</td>
-                <td className="brv">
-                  {parseFloat(e.exchangeRates[e.currency].ask).toFixed(2)}
-                </td>
-                <td className="brv">
-                  {(+e.value * parseFloat(e.exchangeRates[e.currency].ask)).toFixed(2)}
-                </td>
-                <td className="brv">Real</td>
-                <td />
-              </tr>
-            ))}
+            {expensesGlobal.map((e) => {
+              const convertedValue = (
+                +e.value * parseFloat(e.exchangeRates[e.currency].ask)).toFixed(2);
+              return (
+                <tr key={ e.id } className="center table-tr-second">
+                  <td className="brv">{e.description}</td>
+                  <td className="brv">{e.tag}</td>
+                  <td className="brv">{e.method}</td>
+                  <td className="brv">{parseFloat(e.value).toFixed(2)}</td>
+                  <td className="brv">{e.exchangeRates[e.currency].name}</td>
+                  <td className="brv">
+                    {parseFloat(e.exchangeRates[e.currency].ask).toFixed(2)}
+                  </td>
+                  <td className="brv">
+                    {convertedValue}
+                  </td>
+                  <td className="brv">Real</td>
+                  <td>
+                    <button
+                      type="button"
+                      data-testid="delete-btn"
+                      onClick={ () => this.removeClick(e.id, convertedValue) }
+                    >
+                      x
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
@@ -51,6 +69,7 @@ const mapStateToProps = (state) => ({
 
 Table.propTypes = {
   expensesGlobal: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps)(Table);

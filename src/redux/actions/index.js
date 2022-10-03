@@ -16,6 +16,12 @@ export const expensesAction = (payload, cota) => ({
   cota,
 });
 
+export const removeAction = (id, convertedValue) => ({
+  type: 'REMOVE_LIST',
+  id,
+  convertedValue,
+});
+
 export const fetchAPICoin = () => async (dispatch) => {
   const fetchAPI = await fetch('https://economia.awesomeapi.com.br/json/all');
   const jsonAPI = await fetchAPI.json();
