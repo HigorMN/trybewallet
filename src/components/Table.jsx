@@ -20,17 +20,19 @@ class Table extends Component {
     return (
       <div className="table-container center">
         <table>
-          <tr className="table-tr-first center">
-            <th className="br">Descrição</th>
-            <th className="br">Tag</th>
-            <th className="br">Método de pagamento</th>
-            <th className="br">Valor</th>
-            <th className="br">Moeda</th>
-            <th className="br">Câmbio utilizado</th>
-            <th className="br">Valor convertido</th>
-            <th className="br">Moeda de conversão</th>
-            <th>Editar/Excluir</th>
-          </tr>
+          <thead>
+            <tr className="table-tr-first center">
+              <th className="br">Descrição</th>
+              <th className="br">Tag</th>
+              <th className="br">Método de pagamento</th>
+              <th className="br">Valor</th>
+              <th className="br">Moeda</th>
+              <th className="br">Câmbio utilizado</th>
+              <th className="br">Valor convertido</th>
+              <th className="br">Moeda de conversão</th>
+              <th>Editar/Excluir</th>
+            </tr>
+          </thead>
           <tbody className="center tbody">
             {expensesGlobal.map((e) => {
               const convertedValue = (
