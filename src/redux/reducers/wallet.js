@@ -17,12 +17,12 @@ const wallet = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       expenses: [...state.expenses, action.expenObj],
-      despesas: ((+state.despesas + (+action.expenObj.value * action.cota))).toFixed(2),
+      despesas: +((+state.despesas + (+action.expenObj.value * action.cota))).toFixed(2),
     };
   case 'REMOVE_LIST':
     return {
       ...state,
-      despesas: (+state.despesas - +action.convertedValue).toFixed(2),
+      despesas: +(+state.despesas - +action.convertedValue).toFixed(2),
       expenses: state.expenses.filter((e) => e.id !== action.id),
     };
   case 'EDIT_BUTTON':
@@ -35,7 +35,7 @@ const wallet = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       expenses: action.newExpenseArray,
-      despesas: action.newExpenseArray
+      despesas: +action.newExpenseArray
         .reduce((acc, crt) => acc + (
           +crt.value * +crt.exchangeRates[crt.currency].ask), 0).toFixed(2),
     };
