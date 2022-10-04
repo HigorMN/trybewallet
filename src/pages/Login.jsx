@@ -46,22 +46,24 @@ class Login extends React.Component {
           <div className="login-container-img">
             <img src={ logoTrybeWallet } alt="Logo Trybe wallet" />
           </div>
-          <div className="input-container-login">
+          <div className="input-container-login center">
             <input
               type="email"
               name="email"
               placeholder="Email"
               data-testid="email-input"
+              className="input-container-login-input"
               value={ email }
               onChange={ this.handleChange }
             />
           </div>
-          <div className="input-container-login">
+          <div className="input-container-login center">
             <input
               type="password"
               name="passoword"
               placeholder="Senha"
               data-testid="password-input"
+              className="input-container-login-input"
               value={ passoword }
               onChange={ this.handleChange }
             />
