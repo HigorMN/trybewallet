@@ -22,7 +22,7 @@ const wallet = (state = INITIAL_STATE, action) => {
   case 'REMOVE_LIST':
     return {
       ...state,
-      despesas: +(+state.despesas - +action.convertedValue).toFixed(2),
+      despesas: (+state.despesas - +action.convertedValue).toFixed(2),
       expenses: state.expenses.filter((e) => e.id !== action.id),
     };
   case 'EDIT_BUTTON':
