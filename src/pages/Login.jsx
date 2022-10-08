@@ -18,11 +18,9 @@ class Login extends React.Component {
 
   handleChange = ({ target: { value, name } }) => {
     this.setState({ [name]: value }, () => {
-      const { email: e, passoword } = this.state;
-      const emailValid = !!(e.includes('@') && e.includes('.com'));
-      const passowordValid = passoword.length >= NUMBER_MIN;
+      const { email, passoword } = this.state;
 
-      if (emailValid && passowordValid) {
+      if (passoword.length >= NUMBER_MIN && /\S+@\S+\.\S+/.test(email)) {
         this.setState({ disableButton: false });
       } else {
         this.setState({ disableButton: true });
