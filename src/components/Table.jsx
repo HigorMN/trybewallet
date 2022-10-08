@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { editAction, removeAction } from '../redux/actions';
 
+import editImg from '../images/editImg.png';
+import removeImg from '../images/removeImg.png';
+
 class Table extends Component {
   removeClick = (id, convertedValue) => {
     const { dispatch } = this.props;
@@ -54,17 +57,19 @@ class Table extends Component {
                   <td>
                     <button
                       type="button"
-                      data-testid="delete-btn"
-                      onClick={ () => this.removeClick(e.id, convertedValue) }
+                      data-testid="edit-btn"
+                      onClick={ () => this.editClick(e.id) }
+                      className="buttonTable"
                     >
-                      x
+                      <img src={ editImg } alt="Botão de editar" />
                     </button>
                     <button
                       type="button"
-                      data-testid="edit-btn"
-                      onClick={ () => this.editClick(e.id) }
+                      data-testid="delete-btn"
+                      onClick={ () => this.removeClick(e.id, convertedValue) }
+                      className="buttonTable"
                     >
-                      Edit
+                      <img src={ removeImg } alt="Botão de remover" />
                     </button>
                   </td>
                 </tr>

@@ -299,3 +299,13 @@ input [ type = 'button' ]:disabled {
 .tbody {
   flex-direction: column;
 }
+
+.buttonTable {
+  background: none;
+  border: none;
+  margin: 0 6px;
+}
+
+.buttonTable:hover {
+  cursor: pointer;
+}
