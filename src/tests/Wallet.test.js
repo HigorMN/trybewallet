@@ -78,7 +78,7 @@ describe('Testando a pagina de Wallet', () => {
     expect(screen.getByRole('cell', { name: /pera/i })).toBeInTheDocument();
     expect(screen.getByRole('cell', { name: /20\.00/i })).toBeInTheDocument();
 
-    const deletButton = screen.getByRole('button', { name: /x/i });
+    const deletButton = screen.getByRole('img', { name: /botão de remover/i });
     userEvent.click(deletButton);
   });
 });
