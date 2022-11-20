@@ -10,10 +10,10 @@ export default class App extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/trybewallet">
           <Login />
         </Route>
-        <Route exact path="/carteira">
+        <Route exact path="/trybewallet/carteira">
           <Wallet />
         </Route>
       </Switch>

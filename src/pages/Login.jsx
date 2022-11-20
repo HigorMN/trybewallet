@@ -74,7 +74,7 @@ class Login extends React.Component {
             >
               Entrar
             </button>
-            { redirect && <Redirect to="/carteira" />}
+            { redirect && <Redirect to="/trybewallet/carteira" />}
           </div>
         </form>
       </main>
